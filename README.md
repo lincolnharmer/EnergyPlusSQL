@@ -7,7 +7,6 @@ To use, install the follwoing R packages:
 
 (shiny),
 (openair),
-(neuralnet),
 (plotly),
 (RSQLite),
 (reshape2),
