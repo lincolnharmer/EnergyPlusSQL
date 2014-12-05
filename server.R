@@ -1,7 +1,6 @@
 #open libraries
 library(shiny)
 library(openair)
-library(neuralnet)
 library(plotly)
 library(RSQLite)
 library(reshape2)
