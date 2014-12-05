@@ -13,7 +13,7 @@ shinyServer(function(input, output, session) {
   userdata <- reactive(function(){
      if(is.null(input$bugs)){return()}
 	 drv <- dbDriver("SQLite") 
-con <- dbConnect(drv, dbname = as.character(input$bugs$name[1]))
+con <- dbConnect(drv, dbname = "eplusout.sql")
 
        bugs <- dbGetQuery(con, "select VariableName FROM ReportVariableDataDictionary")
 	  
