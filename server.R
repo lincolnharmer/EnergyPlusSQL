@@ -106,6 +106,5 @@ output$downloadData <- downloadHandler(
  }
 )
 	
-
 })
 
