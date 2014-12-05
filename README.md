@@ -1,7 +1,7 @@
 EnergyPlusSQL
 =============
 
-Use this tool to create interactive plots with E+ time series data.
+Use this tool to create interactive plots and download E+ output data.
 
 To use, install the follwoing R packages:
 
