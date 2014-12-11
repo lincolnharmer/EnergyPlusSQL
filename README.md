@@ -14,4 +14,4 @@ To use, install the follwoing R packages:
 
 You'll also need to create an account at www.plotly.com to view the interactive plots.
 
-This tool works best if you download locally on machine as there seem to be issues when trying to run directly from GitHub.
+This tool works best if you download locally on machine as there are issues when trying to run directly from GitHub.
