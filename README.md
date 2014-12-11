@@ -10,8 +10,8 @@ To use, install the follwoing R packages:
 (plotly),
 (RSQLite),
 (reshape2),
-(ggplot2),
+(ggplot2)
 
-Then type the following command into RStudio:
+You'll also need to create an account at www.plotly.com to view the interactive plots.
 
-runGitHub( "EnergyPlusSQL", "lincolnharmer")
+This tool works best if you download locally on machine as there seem to be issues when trying to run directly from GitHub.
