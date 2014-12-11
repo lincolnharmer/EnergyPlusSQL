@@ -80,7 +80,7 @@ return(varsData)
    names(plotData) <- new
    plotData_long <- melt(plotData, id="Date")
   	
-		py <- plotly(username='harmerl', key='jwn0dry5p9')
+		py <- plotly(username='ENTER USER NAME HERE', key='ENTER KEY HERE')
 		viz2 <- ggplot(data=plotData_long,aes(x=Date, y=value, colour=variable)) + 
 		geom_line() 
 		layout <- list(legend.position = "top",legend.direction = "horizontal")
