@@ -13,7 +13,7 @@ shinyServer(function(input, output, session) {
   userdata <- reactive(function(){
      if(is.null(input$bugs)){return()}
 	 drv <- dbDriver("SQLite") 
-con <- dbConnect(drv, dbname = "eplusout.sql")
+con <- dbConnect(drv, dbname = "eplusout.sql") 
 
        bugs <- dbGetQuery(con, "select VariableName FROM ReportVariableDataDictionary")
 	  
@@ -74,13 +74,14 @@ return(varsData)
 	new=c("Date",input$variable)
 
   plotData=query()
-  lengthTemp=dim(plotData[[1]])[1]
-  x=1:35040
+  lengthTemp=dim(plotData[[1]])[2]
+  rows=nrow(plotData)
+  x=1:rows
   plotData=cbind(x,plotData)
    names(plotData) <- new
    plotData_long <- melt(plotData, id="Date")
   	
-		py <- plotly(username='ENTER USER NAME HERE', key='ENTER KEY HERE')
+		py <- plotly(username=input$userName, key=input$key)
 		viz2 <- ggplot(data=plotData_long,aes(x=Date, y=value, colour=variable)) + 
 		geom_line() 
 		layout <- list(legend.position = "top",legend.direction = "horizontal")
@@ -106,5 +107,6 @@ output$downloadData <- downloadHandler(
  }
 )
 	
+
 })
 
