@@ -9,7 +9,7 @@ Download the ui.R file and the server.R file to a directory of your choice, then
 (RSQLite),
 (reshape2),
 (ggplot2)
-Use the runApp("<DirectoryOfYourChoice>") command in RStudio to run the program. Open the program in a browser for best performance. 
+Use the runApp(">DirectoryOfYourChoice<") command in RStudio to run the program. Open the program in a browser for best performance. 
 
 You'll also need to create an account at www.plotly.com to view the interactive plots.
 
