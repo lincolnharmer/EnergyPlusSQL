@@ -1,6 +1,6 @@
 EnergyPlusSQL
 =============
-Use this tool to create interactive plots and download E+ output data.
+Use this tool to create interactive plots and download E+ output data in a CSV format.
 
 To use download the ui.R file and the server.R file to a directory of your choice, then install the follwoing R packages:
 (shiny),
