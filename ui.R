@@ -11,7 +11,9 @@ shinyUI(fluidPage(
   # element to introduce extra vertical spacing
   sidebarPanel(
   
-  #textInput("pollutant","Please enter pollutant","no pollutant"),
+  textInput("userName", label = h6("Enter Plotly User Name"), value = "Plotly User Name"),
+  textInput("key", label = h6("Enter Plotly Key"), value = "Plotly Key"),
+  br(),
   br(),
     fileInput("bugs", "Input Data"),
 
@@ -20,12 +22,11 @@ shinyUI(fluidPage(
 	selectInput("variable","Select Output Variable(s)",names(userdata),selected="none",multiple=TRUE),
 
 	br(),
-			 #downloadButton('downloadData', 'Download Data'),
 			 	br()),
 					
 		
 
-	# h6("Created By: Lincoln Harmer"),
+	 h6("Created By: Lincoln Harmer"),
 
   # Show a tabset that includes a plot, summary, and table view
   # of the generated distribution
@@ -36,8 +37,7 @@ shinyUI(fluidPage(
 			p("1) select an EnergyPlus SQL Output File"),
 			p("2) Choose Variable(s) to be plotted/downloaded")),
 
-			#verbatimTextOutput("summary")),
-        
+      
 		
 		tabPanel("Data",fluidRow(tableOutput('filetable'))),
 		tabPanel("Plot",uiOutput("plot")),
