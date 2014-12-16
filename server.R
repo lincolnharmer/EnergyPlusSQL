@@ -1,7 +1,8 @@
 #open libraries
 library(shiny)
 library(plotly)
-library(RSQLite)
+if(!require(RSQLite)) { 
+  install.packages("RSQLite"); library(RSQLite)} 
 library(reshape2)
 library(ggplot2)
 #define ability to open large files
