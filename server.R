@@ -1,6 +1,5 @@
 #open libraries
 library(shiny)
-library(openair)
 library(plotly)
 library(RSQLite)
 library(reshape2)
