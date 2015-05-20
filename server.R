@@ -9,17 +9,16 @@ options(shiny.maxRequestSize = -1)
 # Define server logic for random distribution application
 shinyServer(function(input, output, session) {
   #opening the file
-  userdata <- reactive(function(){
-     if(is.null(input$bugs)){return()}
-	 drv <- dbDriver("SQLite") 
-con <- dbConnect(drv, dbname = "eplusout.sql") 
 
-       bugs <- dbGetQuery(con, "select VariableName FROM ReportVariableDataDictionary")
-	  
-	   })
-	   
 	  observe({
-    df <- userdata()
+	      inFile <- input$file1
+
+    if (is.null(inFile))
+      return(NULL)
+	 drv <- dbDriver("SQLite") 
+con <- dbConnect(drv, dbname = inFile$datapath) 
+
+      df<- dbGetQuery(con, "select VariableName FROM ReportMeterDataDictionary")
     str(names(df))
     if (!is.null(df)) {
       updateSelectInput(session,"variable", choices = (df))
@@ -27,17 +26,20 @@ con <- dbConnect(drv, dbname = "eplusout.sql")
     }
   }) 
   
-  query<-reactive({
+  query <- function(){
+      inFile <- input$file1
+
+    if (is.null(inFile))
+      return(NULL)
+
   		   drv <- dbDriver("SQLite") 
-  con <- dbConnect(drv, dbname = "eplusout.sql")
+  con <- dbConnect(drv, dbname = inFile$datapath)
   
-
   numVars=length(input$variable)
-
 
   vars=as.data.frame(matrix(nrow=1,ncol=numVars))
   for (i in 1:numVars ) {
-    vars[[i]] <- dbGetQuery(con, paste("select ReportVariableDataDictionaryIndex FROM ReportVariableDataDictionary WHERE VariableName='",input$variable[i],"'",sep=""))
+    vars[[i]] <- dbGetQuery(con, paste("select ReportMeterDataDictionaryIndex FROM ReportMeterDataDictionary WHERE VariableName='",input$variable[i],"'",sep=""))
   }
   
   varsDataTest <- dbGetQuery(con, paste("select VariableValue FROM ReportVariableData WHERE ReportVariableDataDictionaryIndex='",vars[[1]],"'",sep=""))
@@ -54,16 +56,11 @@ con <- dbConnect(drv, dbname = "eplusout.sql")
   new=gsub(":", "_", input$variable)
   names(varsData) <- new
 return(varsData)
+   }
+   
+  output$filetable <- renderTable({
 
-})
-  
-  output$filetable <- renderTable(function(){
-    if (is.null(input$bugs)) {
-      # User has not uploaded a file yet
-      return(NULL)
-    }
-
-	query()
+  query()
 
  })
 
@@ -105,7 +102,5 @@ output$downloadData <- downloadHandler(
        
  }
 )
-	
-
 })
 

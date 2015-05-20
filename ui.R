@@ -15,7 +15,7 @@ shinyUI(fluidPage(
   textInput("key", label = h6("Enter Plotly Key"), value = "Plotly Key"),
   br(),
   br(),
-    fileInput("bugs", "Input Data"),
+    fileInput("file1", "Input Data"),
 
 		br(),			  
 	#selecting the oudoor air temp
