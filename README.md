@@ -1,6 +1,6 @@
 EnergyPlusSQL
 =============
-Use this tool to create interactive plots and download E+ output data in a CSV format.
+Use this tool to create interactive plots and download E+ output data in a CSV format. Currently, the tool only works for metered end-use output data. 
 
 ### Installation instructions
 
@@ -36,4 +36,4 @@ runApp(appDir = getwd())
 Open the program in a browser for best performance. 
 
 
-TODO: Add support for IP units, other chart types
+TODO: Add support for IP units, other chart types, other output data besides metered end-use data.
