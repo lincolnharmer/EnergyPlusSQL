@@ -16,6 +16,7 @@ All of the above can be installed by typing in R: `install.packages("Name_of_Pac
 * plotly: install devtools first in order to use install_github. In R:
 ```
 install.packages('devtools')
+library("devtools")
 devtools::instal_github('ropensci/plotly')
 ```
 
